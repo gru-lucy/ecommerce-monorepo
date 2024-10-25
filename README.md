@@ -1,4 +1,4 @@
-# Turborepo starter
+# Turborepo starter (Ecommerce)
 
 This is an official starter Turborepo.
 
@@ -16,13 +16,20 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `dashboard`: a [Next.js](https://nextjs.org/) app for the store dashboard (updates inventory count).
+- `store`: another [Next.js](https://nextjs.org/) app for the store (places orders).
+- `inventory-management`: a backend microservice built with Node.js, Express.js, Drizzle, and PostgreSQL for inventory management.
+- `@repo/ui`: a stub React component library shared by both `dashboard` and `store` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+
+### Environment
+
+- `Node.js` -> 20.11.1
+- `Postgres` -> 14
+- `pnpm` -> 9.12.1
 
 ### Utilities
 
@@ -68,6 +75,26 @@ Next, you can link your Turborepo to your Remote Cache by running the following 
 ```
 npx turbo link
 ```
+
+## Environment Variables
+
+Here are the environment variable configurations for each app:
+
+### Dashboard (`env.example`)
+
+    NEXT_PUBLIC_BACKEND_API=http://localhost:5000/api
+    NEXT_PUBLIC_APP_API=http://localhost:3001
+
+### Store (`env.example`)
+
+    NEXT_PUBLIC_BACKEND_API=http://localhost:5000/api
+    NEXT_PUBLIC_APP_API=http://localhost:3001
+
+### Inventory Management (`env.example`)
+
+    DATABASE_URL=postgres://postgres:postgres@localhost:5432/sellhub
+    PORT=5000
+    LOG_LEVEL=info
 
 ## Useful Links
 
