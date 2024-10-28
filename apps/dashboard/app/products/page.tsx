@@ -1,5 +1,5 @@
 import type { Product, ProductColumn } from '../../types';
-import Table from '../components/table';
+import Table from '../../components/table';
 import { productColumns } from '../../constants';
 import Link from 'next/link';
 
