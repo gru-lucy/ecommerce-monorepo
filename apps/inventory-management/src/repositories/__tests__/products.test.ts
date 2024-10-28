@@ -31,7 +31,9 @@ describe('ProductRepository', () => {
 
       // Mock the chainable select().from() methods
       const selectFromMock = {
-        from: jest.fn().mockResolvedValue(mockProducts),
+        from: jest.fn().mockReturnValue({
+          orderBy: jest.fn().mockResolvedValue(mockProducts),
+        }),
       };
       (dbMock.select as jest.Mock).mockReturnValue(selectFromMock);
 
